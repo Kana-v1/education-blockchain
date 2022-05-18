@@ -1,0 +1,44 @@
+Blockchain - its distributed database, where everyone can securely access data and execute transactional code. All transactions are stored in blocks of data. This blocks are made in a way that makes them very hard to manpulate once they have been stored. Blockchain has not been created to store much information about each transaction (images for example).   
+
+Each block in a blockchain consists data and its resulting hash, it also contains a nounce, which is an input to the hashing algorithm and a number, meaning which order is has in a blockchain, timestamp and has of the previous block. 
+
+Blockchain can be either public or private. 
+
+Everyone can connect to the public blockchain with an internet connection. U have to pay for transaction and storage for every block u want to add to the chain. There is no way it can be hacked. Public blockhain relies on community (for example, its only community decision what to do with forks)
+
+Private blockchain is similar to traditional databases. Since you own an infrastruction its your business to control the cost of blockchain operations. You know chain entities and control who can get access to your chain.   
+
+Ethereum is of the most well-established blockchain. 
+
+Distributed application (DAPP) shared data is available on the distributed blockchain and exists in many locations, so it doesn't matter if some server go down. So the only difference between the architecture of a classic app and dapp is that in a dapp back-end connnecting to public web3 infrastructure. THe front-end and datastore can be integrated in dapp just like in any other apps.
+dApp uses passwordless identification (security and access provided by cryptography rather than username and password or oAuth). 
+Coz data can be stored on either centralized solutions or P2P platforms, such as the InterPlanetary File System (IPFS)
+
+web3 has distributed ledger (aka blockchain) and validator nods (servers that provider computation services and security for the nerwork) as key concepts. 
+
+Custom code is directly deployed to the blockchain and can be called by users. Validator nodes take care of the execution, and any interactions with the code are then saved on the blockchain.
+
+NEAR app usually contains 3 layers:
+
+- App layer (backend + frontend) - UI and services that interact with NEAR. Communication between the app later and the protocol layer is channeled through an RPC interface in NEAR. 
+
+- Protocol Layer (P2P Network Components) - a layer where data and transactions validated and added to the public ladger. 
+
+- Runtime Layer (VM, Storage) - can be considered as the protocol layer. Every time a NEAR Validator Node validates a transaction they read and write in the State Storage and on the VM. App layer is often referred to as the resource layer because the "real computations" occur here.
+
+NEAR support any language that Wasm can deal with (AssemblyScript and Rust nowadays). 
+
+Gas - transaction fees from network users. 
+
+What happends if u call function from the smart contract via a cli:
+
+1) dApp sign the transaction and represents a Function Call transaction
+
+2) The transaction is sent to the NEAR platform through the RPC interface, which validates and verifies the transaction before routing it (based on the contract account) to the correct validator for processing
+
+3) The runtime layer launches a Wasm virtual machine.
+
+4) The VM loads the contract code to invoke the function identified in the transaction, reading and writing to state storage as needed and returning the result of the function call.
+
+5) The blockchain layer routes the result back through the RPC interface to your dApp.
+
