@@ -42,3 +42,75 @@ What happends if u call function from the smart contract via a cli:
 
 5) The blockchain layer routes the result back through the RPC interface to your dApp.
 
+Contract - a set of functions that can read or alter the state of the NEAR Network. It executed on the NEAR VM. 
+
+After the contract was compiled to Wasm, it can be deployed to the NEAR blockchain (which means uploaded and stored in the NEAR blockchain). 
+
+Transaction is a sequence of actions. There are 8 available actions: CreateAccount, DeleteAccount, AddKey (add key to an account), DeleteKey, Transfer (tokens from account to another), Stake(u want to become a validator), DeployContract, FunctionCall(invoke a method on a contract)
+
+Contract deployment includes:
+1) Compile contract bytecode (rust to wasm bytecode)
+2) Call DeployContract action. 
+3) Sign and send transaction that will deploy ur code to the network
+4) Redeployment and trustless operations (As long as FullAccess private keys are available, you can redeploy. Remove these keys for trustless operation)
+
+
+===========================================================================================
+NEAR Blockchain concepts:
+
+shard == block
+
+Genesis - rules that each part of the decentralized system agree upon (similar to a json file). So to start a blockchain u need genesis and software that can understand this file and start a blockchain
+ 
+Record - the state of the network 
+
+Epochs - a unit of time when the number of validators in the network remain constant. This time is usually around 12 hours, but an truth measurement method is height of blocks.
+
+Every validator has a number of blocks that is would produce.
+
+Blocks does not contain transactions by itself. Blocks contain chunks and block does not really care what there is inside a chunk. Chunk is an entity that collects transactions. 
+
+Seat price - a minimum stake to become a validator
+
+
+Validators listen requests from users that want to change network state (transaction in the other word). Other nodes can listen to transactions, but non-validator node will reroutes transaction to a validator node. Then validators will add transaction into a bucket they are currently working on in a block. 
+
+Different validators validate transactions and create a block. And validator that create a block can not verify if there is any transactions inside, so those can be blocks without transactions. 
+
+When transaction appears in the network and validator receives it, then such things happen:
+
+1) transaction convert to a receipt (repeipt is same as a transaction, but assigner is validator rather than user) and checked if there is enough tokens to pay a fee and if transaction is signed by user
+
+2) validator include this transaction in the block
+
+3) receipt can be executed either in the current block or in the next block. So even if block has 0 transactions it can contains receipts from the previous block. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
